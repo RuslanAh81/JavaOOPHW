@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.datamodel.ProductData;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -23,5 +24,24 @@ public class Main extends Application
     public static void main(String[] args)
     {
         Main.launch();
+    }
+    @Override
+    public void stop() throws Exception {
+        try {
+            ProductData.getInstance().storeProductItems();
+
+        }catch (IOException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Override
+    public void init() throws Exception {
+        try {
+            ProductData.getInstance().loadProductItems();
+
+        }catch (IOException e){
+            System.out.println(e.getMessage());
+        }
     }
 }

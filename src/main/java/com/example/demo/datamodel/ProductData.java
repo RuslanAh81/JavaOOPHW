@@ -13,7 +13,7 @@ import java.util.Iterator;
 
 public class ProductData {
     private static ProductData instance = new ProductData();
-    private static String filename = "ProductListItems.txt";
+    private static String filename = "com/example/demo/ProductListItems.txt";
 
     private ObservableList<ProductItem> productItems;
 
@@ -26,6 +26,10 @@ public class ProductData {
     public ObservableList<ProductItem> getProductItems() {
         return productItems;
     }
+
+//    public void setProductItems(List<ProductItem>productItems){
+//        this.productItems= productItems;
+//    }
 
     public void addProductItem(ProductItem item) {
         productItems.add(item);
@@ -46,9 +50,9 @@ public class ProductData {
                 String name = itemPieces[0];
                 String details = itemPieces[1];
                 String price = itemPieces[2];
-                String dateString = itemPieces[3];
+                String quantity = itemPieces[3];
 
-                Quantity = quantity.parse(dateString);
+               // int quantity = quantity.parse(dateString);
                 ProductItem productItem = new ProductItem(name, details,price,quantity);
                 productItems.add(productItem);
             }
@@ -60,7 +64,7 @@ public class ProductData {
         }
     }
 
-    public void storeTodoItems() throws IOException {
+    public void storeProductItems() throws IOException {
 
         Path path = Paths.get(filename);
         BufferedWriter bw = Files.newBufferedWriter(path);
@@ -83,8 +87,12 @@ public class ProductData {
         }
     }
 
+
     public void deleteProductItem(ProductItem item) {
         productItems.remove(item);
     }
+
+
+
 
 }

@@ -8,10 +8,10 @@ public class ProductItem {
     private String details;
 
     private String price;
-    private int quantity;
+    private String quantity;
 
 
-    public ProductItem(String name, String details, String price, int quantity) {
+    public ProductItem(String name, String details, String price, String quantity) {
         this.name = name;
         this.details = details;
         this.price = price;
@@ -42,11 +42,11 @@ public class ProductItem {
         this.price = price;
     }
 
-    public int getQuantity() {
+    public String getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
 
